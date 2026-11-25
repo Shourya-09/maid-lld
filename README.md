@@ -53,13 +53,7 @@ com.rupeek.maidbooking
 - Pricing is calculated as `slot.durationInHours() * maid.getHourlyRate()`.
 - Payment gateways are mocked inside `UpiPaymentStrategy`, `CreditCardPaymentStrategy`, and `WalletPaymentStrategy` by validating the user's corresponding credential (`upiId`, `creditCardNumber`, `walletId`).
 
-## 4. What I Would Do With More Time
-
-- **Persistent Storage & Distributed Locking**: Replace in-memory repositories with JPA/PostgreSQL and replace in-process `ReentrantLock` with pessimistic row locking or Redis-based distributed locks for multi-instance deployments.
-- **Idempotency Keys on Payments**: Add an `idempotencyKey` to payment requests to prevent duplicate charges on network retries.
-- **Pluggable Dynamic Pricing**: Extract price calculation behind a `PricingStrategy` interface (e.g., peak-hour or weekend surge pricing).
-
-## 5. How to Build and Run
+## 4. How to Build and Run
 
 ### Run Unit Tests
 ```bash
